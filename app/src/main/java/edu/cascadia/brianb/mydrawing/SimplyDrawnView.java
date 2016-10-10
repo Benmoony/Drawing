@@ -26,6 +26,7 @@ public class SimplyDrawnView extends View {
         super(context, attributeSet);
         mPaint = new Paint();
         mPath = new Path();
+        mPath.addArc(0f, 600f, mWidth/2f, 600f, 270f, 90f);
      }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -44,13 +45,22 @@ public class SimplyDrawnView extends View {
         canvas.drawLine(mWidth, 0, 200, mHeight, mPaint);
 
         //Draw red line
-        mPaint.setColor(Color.RED); mPaint.setStrokeWidth(10);
-
+        mPaint.setColor(Color.RED); mPaint.setStrokeWidth(20);
+        canvas.drawLine(0, 200, mWidth, 200, mPaint);
         //Draw green lines
+        mPaint.setColor(Color.GREEN); mPaint.setStrokeWidth(5);
+        canvas.drawLine(mWidth, 55, 125, mHeight, mPaint);
+
+
 
         //Draw Text
+        mPaint.setColor(Color.BLACK);
+        mPaint.setTextSize(60);
+        canvas.drawText("Hello", 300, 300, mPaint);
 
         //Draw Text on a Path
+        mPaint.setTextSize(60);
+        canvas.drawText("Greetings", mPath, 0, 20, mPaint);
 
         //Draw filled, opaque, and open ovals
 
